@@ -8,3 +8,5 @@ copliot
 Raycast 类Alfred搜索工具
 ## Vps
 [vultr](https://www.vultr.com/)
+## Blog
+[1Byte](https://1byte.io/)
