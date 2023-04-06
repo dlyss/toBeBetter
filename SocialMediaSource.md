@@ -11,3 +11,5 @@ Raycast 类Alfred搜索工具
 [搭建教程](https://github.com/WangZeyu9965/vps)
 ## Blog
 [1Byte](https://1byte.io/)
+## 教程
+[Git学习](https://learngitbranching.js.org/?locale=zh_CN)
