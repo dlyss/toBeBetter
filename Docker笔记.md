@@ -47,6 +47,19 @@
 - ·docker rm -f 容器id·
 - 启动容器
 - `docker start|stop|kill 容器id`
+- 进入容器
+- `sudo docker exec -it 3829e4dc7190 /bin/bash`
+## docker mysql images
 - 启动mysql镜像:-v /root/data:/var/lib/mysql /root/data/:这是宿主机的数据存放路径（你也可以自定义）
-- `docker run --name some-mysql -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /root/data:/var/lib/mysql mysql:5.6`
+- `docker run -it --name some-mysql -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /root/data:/var/lib/mysql mysql:5.6`
+- 进入mysql容器
+- `sudo docker exec -it 3829e4dc7190 /bin/bash`
+- 登录数据库
+- `mysql -h localhost -P 3396 -u root -p`
+数据库相关操作
+
+`select database();`
+`create database test;`
+`use test`
+
 
