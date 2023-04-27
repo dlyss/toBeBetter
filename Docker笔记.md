@@ -26,18 +26,27 @@
 - `sudo docker run hello-world`
 
 6、常用命令
-列出当前已有镜像
+
+- 列出当前已有镜像
 - `docker images -aq`
-查询命令帮助文件
+- 查询命令帮助文件
 - `docker xx命令 --help`
-搜索指定信息镜像
+- 搜索指定信息镜像
 - `sudo docker search mysql --filter=STARS=6000`
-拉取指定版本镜像
+- 拉取指定版本镜像
 - `sudo docker pull mysql:8.0`
-删除指定id镜像
+- 删除指定id镜像
 - `docker rmi -f 镜像id`
-交互式运行某镜像
+- 交互式运行某镜像
 - `docker run -it xxx /bin/bash`
-列出当前运行中镜像
+- 容器不停止退出
+- ctrl+P+Q
+- 列出当前运行中镜像
 - `docker ps -aq`
--  
+- 删除容器
+- ·docker rm -f 容器id·
+- 启动容器
+- `docker start|stop|kill 容器id`
+- 启动mysql镜像:-v /root/data:/var/lib/mysql /root/data/:这是宿主机的数据存放路径（你也可以自定义）
+- `docker run --name some-mysql -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /root/data:/var/lib/mysql mysql:5.6`
+
