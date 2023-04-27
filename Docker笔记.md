@@ -19,3 +19,25 @@
 4、安装docker
 - `yum install docker `
 - `docker version`
+- `docker info`
+
+5、启动docker
+- `systemctl start docker`
+- `sudo docker run hello-world`
+
+6、常用命令
+列出当前已有镜像
+- `docker images -aq`
+查询命令帮助文件
+- `docker xx命令 --help`
+搜索指定信息镜像
+- `sudo docker search mysql --filter=STARS=6000`
+拉取指定版本镜像
+- `sudo docker pull mysql:8.0`
+删除指定id镜像
+- `docker rmi -f 镜像id`
+交互式运行某镜像
+- `docker run -it xxx /bin/bash`
+列出当前运行中镜像
+- `docker ps -aq`
+-  
