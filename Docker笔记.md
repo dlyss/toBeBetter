@@ -61,5 +61,6 @@
 `select database();`
 `create database test;`
 `use test`
-
+## docker redis images
+- `sudo docker run --name redisNeedPw -p 6379:6379 -d --restart=always  redis:latest redis-server --appendonly yes --requirepass "123456"`
 
