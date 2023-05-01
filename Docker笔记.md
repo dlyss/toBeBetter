@@ -49,13 +49,21 @@
 - `docker start|stop|kill 容器id`
 - 进入容器
 - `sudo docker exec -it 3829e4dc7190 /bin/bash`
+- 查看日志
+- ·docker logs -f -t --tail 10 5578e2c7435c·
+- 查看容器进程
+- ·sudo docker top 5578e2c7435c·
+- 查看容器信息
+- ·docker inspect 5578e2c7435c·
+- 从容器内拷贝文件到宿主机(在容器中执行)
+- `docker cp 容器id:/home/test.java /home`
 ## docker mysql images
 - 启动mysql镜像:-v /root/data:/var/lib/mysql /root/data/:这是宿主机的数据存放路径（你也可以自定义）
 - `docker run -it --name some-mysql -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /root/data:/var/lib/mysql mysql:5.6`
 - 进入mysql容器
 - `sudo docker exec -it 3829e4dc7190 /bin/bash`
 - 登录数据库
-- `mysql -h localhost -P 3396 -u root -p`
+- `mysql -h localhost -P 3306 -u root -p`
 数据库相关操作
 
 `select database();`
