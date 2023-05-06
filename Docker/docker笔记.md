@@ -72,3 +72,8 @@
 ## docker redis images
 - `sudo docker run --name redisNeedPw -p 6379:6379 -d --restart=always  redis:latest redis-server --appendonly yes --requirepass "123456"`
 
+## Nginx
+```
+docker run -d --name nginx01 -p 3344:80
+```
+## Es+Kibana
