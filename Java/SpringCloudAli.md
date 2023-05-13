@@ -11,3 +11,29 @@
 - 通过上述parent工程名，右键新建modules
 - 在resource文件夹下新建application.yml，指定端口号，注意yaml语法，属性与值直接有空格
 - 添加controller类，暴露服务
+# springcloudali
+## 整合
+添加对ali&Spring原生cloud的依赖（会混用两者的组件），注意cloud与各组件版本的关系。依赖配置放到dependencyManagement中，因为
+不继承parent的版本信息，所以使用management。
+```
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>${spring-cloud.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+            <version>${spring-cloud-alibaba.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+```
+## Nacos-注册中心
