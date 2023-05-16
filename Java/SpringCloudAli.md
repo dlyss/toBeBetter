@@ -53,4 +53,28 @@ Eureka是Netflix中的注册中心
 ```
 docker run --name nacos-quick -e MODE=standalone -p 8849:8848 -d moese/nacos-server-m1:latest
 ```
+### 集成
+- 微服务添加nacos依赖
+```
+       <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+```
+- 分别copy一份现有的服务调用和服务提供微服务
+- 在配置文件中添加nacos配置
+```
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8849
+        username: nacos
+        password: nacos
+        namespace: public
+```
+- 调用方 restTemplate添加@LoadBalanced依赖（否则识别不了被调用方的服务名）
+- restTeplate调用方式由ip:port/接口改为服务名/接口
 
