@@ -49,8 +49,8 @@ Eureka是Netflix中的注册中心
 - 多数据中心
 - 跨注册中心同步
 ### docker服务启动
-使用低配置aws实例，起来后资源卡死
+使用低配置aws实例，起来后资源卡死;本地（mac m2）使用个人镜像启动
 ```
-docker run --name nacos-quick -e MODE=standalone -p 8849:8848 -d nacos/nacos-server:2.0.2
+docker run --name nacos-quick -e MODE=standalone -p 8849:8848 -d moese/nacos-server-m1:latest
 ```
 
