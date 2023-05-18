@@ -53,7 +53,7 @@ Eureka是Netflix中的注册中心
 ```
 docker run --name nacos-quick -e MODE=standalone -p 8849:8848 -d moese/nacos-server-m1:latest
 ```
-### 集成
+### 微服务集成nacos
 - 微服务添加nacos依赖
 ```
        <dependency>
@@ -62,7 +62,7 @@ docker run --name nacos-quick -e MODE=standalone -p 8849:8848 -d moese/nacos-ser
         </dependency>
 ```
 - 分别copy一份现有的服务调用和服务提供微服务
-- 在配置文件中添加nacos配置
+- 在配置文件中以下添加nacos配置
 ```
 spring:
   application:
@@ -77,4 +77,21 @@ spring:
 ```
 - 调用方 restTemplate添加@LoadBalanced依赖（否则识别不了被调用方的服务名）
 - restTeplate调用方式由ip:port/接口改为服务名/接口
+#### 同一微服务启动不同 端口 方法
+- 在底部 services tab中选择需要的微服务，copy 微服配置，overrice configuration properties,新增 server.port 变量值
+## Ribbon
+客户端负责均衡工具，nacos已默认添加Ribbon依赖，无需单独添加。默认轮训策略，如果分区域部署，默认就近区域可用节点。
+- RandomRule
+- RoundRobinRule
+- RetryRule
+- WeightedRusponseTimeRule
+- BestAvailableRule
+### 修改默认负责策略
+- 在非Application所在包新建configuration配置类
+- 返回IRule 接口实现类
+- 在Application启动类中配置负载注解
+```
+@RibbonClients(value = {@RibbonClient(value = "stock-service",configuration = RibbonRandomConfig.class)})
+
+```
 
