@@ -17,7 +17,7 @@
 - 通过@Profile("xx")注解
 - 通过配置不同环境的属性文件：xxx-dev.yml、xxx-prod.yml;启动时，指定属性配置文件：spring.profiles.active=xxx-dev.yml
 
-7、
+7、https://www.bilibili.com/video/BV1ta411Q7EQ/?p=24&spm_id_from=pageDriver&vd_source=db1a06bcf7a3419e6b9d5eabd5cd3e78 p24
 
 
 
