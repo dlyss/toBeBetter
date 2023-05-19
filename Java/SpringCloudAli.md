@@ -94,4 +94,55 @@ spring:
 @RibbonClients(value = {@RibbonClient(value = "stock-service",configuration = RibbonRandomConfig.class)})
 
 ```
+## Feign Netflix微服务调用组件
+- 添加依赖，新版本springcloud移除ribbon默认负载类，需要添加loadbalancer依赖
+```
+       <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--openfeigh start-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+```
+- Application添加注解：@EnableFeignClients
+- 新建调用接口类,添加注解 name为被调用方nacos服务名称，path为调用接口path
+```
+@FeignClient(name="stock-service", path="/stock")
+public interface StockFeignService {
+    @RequestMapping("/order")
+    public String stock() ;
+}
+```
+### 日志配置
+- 新建配置类,以下为全局配置类，
+- 注意：该级别代表的是日志打印信息详细与否，因springboot有日志的对应级别，还需将其日志级别设置为合适的级别
+```
+logging:
+  level:
+    com.springcloud.feign: debug
+```
+```
+@Configuration
+public class FeignConfig {
+    @Bean
+    public Logger.Level feignLoggerLevel(){
+        return Logger.Level.FULL;
+    }
+}
+```
+
+
 
