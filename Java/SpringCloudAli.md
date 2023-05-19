@@ -143,6 +143,52 @@ public class FeignConfig {
     }
 }
 ```
+### 超时时间
+```
+    #以下是局部配置，对被调用方 stock-service有效
+feign:
+  client:
+    config:
+      stock-service:
+        logger-level:  BASIC
+        connect-timeout: 2000
+        read-timeout: 2000
+```
+### 拦截器
+- 配置类
+```
+public class FeignInterceptorConfig implements RequestInterceptor {
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+    @Override
+    public void apply(RequestTemplate requestTemplate) {
+        logger.info("interceptor");
+        requestTemplate.header("xxx","xxx");
+
+```
+将上述拦截器的实现，添加都配置类中
+```
+    /**
+     * 自定义拦截器
+     * @return
+     */
+    @Bean
+    public FeignInterceptorConfig feignAuthRequestInterceptor(){
+        return new FeignInterceptorConfig();
+    }
+```
+- 配置文件
+```
+    #以下是局部配置，对被调用方 stock-service有效
+feign:
+  client:
+    config:
+      stock-service:
+        logger-level:  FULL
+        connect-timeout: 2000
+        read-timeout: 2000
+        request-interceptors:
+          com.springcloud.feign.interceptor.FeignInterceptorConfig
+```
 
 
 
