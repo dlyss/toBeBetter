@@ -2,6 +2,7 @@
 ## 新建parent服务
 - 使用 springboot init
 - 打包类型pom
+- 版本信息：springboot:2.3.12.RELEASE;springcloud:Hoxton.SR12;springcloudali:2.2.6.RELEASE
 ## 新建子服务-1
 - 通过上述parent工程名，右键新建modules
 - 在弹出的浮层中左侧选择 New Module
@@ -192,5 +193,17 @@ feign:
           com.springcloud.feign.interceptor.FeignInterceptorConfig
 ```
 ## Nacos-config配置中心
+- 添加依赖
+```
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+```
+- 添加配置文件，注意：好像config只能 配置在bootstrap.properties 文件中才能读取到。注意config的application name:xxx,
+- 与nacos配置中data id的对应关系。
 
-
+```
+spring.application.name=order-nacos-config
+spring.cloud.nacos.config.server-addr=127.0.0.1:9849
+```
