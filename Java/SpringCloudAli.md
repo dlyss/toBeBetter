@@ -202,8 +202,11 @@ feign:
 ```
 - 添加配置文件，注意：好像config只能 配置在bootstrap.properties 文件中才能读取到。注意config的application name:xxx,
 - 与nacos配置中data id的对应关系。
+- 配置文件data id默认是properties后缀，可通通过file extention配置非默认的data id 文件后缀
+- 可通过shared-config配置自定义data id，去除Application name和data id的默认关系
 
 ```
 spring.application.name=order-nacos-config
 spring.cloud.nacos.config.server-addr=127.0.0.1:9849
 ```
+## Sentinel 
