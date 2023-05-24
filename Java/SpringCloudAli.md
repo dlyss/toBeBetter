@@ -209,4 +209,4 @@ feign:
 spring.application.name=order-nacos-config
 spring.cloud.nacos.config.server-addr=127.0.0.1:9849
 ```
-## Sentinel 
+## Sentinel （hystrix,已停更，springcloud netflix）
