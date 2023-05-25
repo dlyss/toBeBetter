@@ -210,3 +210,64 @@ spring.application.name=order-nacos-config
 spring.cloud.nacos.config.server-addr=127.0.0.1:9849
 ```
 ## Sentinel （hystrix,已停更，springcloud netflix）
+## Seata-分布式事务
+事务模式：AT 、TCC、SAGA、XA；AT是阿里首推的模式。
+三个角色：
+- TC(Transaction Coordinator)事务协调者，维护全局和分支事务的状态，驱动全局事务提交或回滚
+- TM(Transaction Manager)事务管理器，定义全局事务的范围：开始全局事务、提交或回滚全局事务
+- RM(Resource Manager)资源管理器，管理分支事务处理的资源，与TC交谈以注册分支事务和报告分支事务的状态，并驱动分支事务提交或回滚
+## GateWay(早期版本：zuul)
+- 引入,有冲突，需要排除web
+```
+   <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+```
+- 配置文件
+```
+server:
+  port: 8090
+spring:
+  application:
+    name: order-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8849
+        username: nacos
+        password: nacos
+        namespace: public
+    gateway:
+      #路由规则
+      routes:
+        - id: order-route #路由唯一标识
+          uri:
+          predicates: lb://order-ribbon #lb:使用nacos本地负载策略
+            - Path=/order-serv/**
+          filters:
+            - StripPrefix=1 #转发之前去掉第一层路径
+     # discovery:
+     #   locator:
+       #   enabled: true #是否启动自动识别nacos服务
+
+```
+### 断言
+使用断言，对当前请求进行匹配,可跟正则。
+- 基于Datetime类型的断言
+- 基于Header
+  - Header=X-Request-Id, \d+
+- Method
+  - Method=GET
+- Query 参数
+   - Query=name,dly|ddd
+- 自定义断言工厂
+    - 约定为类需添加 RoutePredicateFactory为结尾
+    - 继承AbstractRoutePredicateFactory
+    - 
