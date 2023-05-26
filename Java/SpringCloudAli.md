@@ -270,4 +270,18 @@ spring:
 - 自定义断言工厂
     - 约定为类需添加 RoutePredicateFactory为结尾
     - 继承AbstractRoutePredicateFactory
-    - 
+- 自定义过滤器
+### 整合sentinel
+- 添加依赖
+```
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
+        </dependency>
+```
+## skywalking
+国产开源框架，是分布式系统的应用程序性能监控工具，2017年加入Apache孵化器。包括分布式追踪、性能指标分析、服务依赖分析等。
