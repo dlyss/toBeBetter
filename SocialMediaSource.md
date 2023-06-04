@@ -15,6 +15,7 @@ Raycast 类Alfred搜索工具
 [1Byte](https://1byte.io/)
 ## 教程
 [Git学习](https://learngitbranching.js.org/?locale=zh_CN)
+Playwright 自动化ui测试
 
 ## idea
 https://www.ahhhhfs.com/30219/
