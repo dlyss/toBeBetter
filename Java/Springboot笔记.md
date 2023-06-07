@@ -19,5 +19,7 @@
 
 7、https://www.bilibili.com/video/BV1ta411Q7EQ/?p=24&spm_id_from=pageDriver&vd_source=db1a06bcf7a3419e6b9d5eabd5cd3e78 p24
 
-8、yaml赋值
+8、数据校验（JSR303校验）
+- 类上添加@Validated
+   - 属性值加上对应的校验条件，如@Email
 
