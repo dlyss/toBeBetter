@@ -1,0 +1,4 @@
+- var paraName = ... //java10新特性，在等号右侧类型明确时，左侧可以使用var 修饰，可以自动推断出paraName的类型
+  - 以下写法等价
+  - ConfigurableApplicationContext ioc = SpringApplication.run(xxx.class,args);
+  - var ioc = SpringApplication.run(xxx.class,args);
