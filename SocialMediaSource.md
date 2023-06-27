@@ -18,4 +18,5 @@ Raycast 类Alfred搜索工具
 Playwright 自动化ui测试
 
 ## idea
-https://www.ahhhhfs.com/30219/
+https://www.ahhhhfs.com/30219/  
+https://3.jetbra.in/
