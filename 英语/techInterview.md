@@ -1,0 +1,2 @@
+- you shold do your best to talk out loud throughout the problem and explain your thought process.
+- 
