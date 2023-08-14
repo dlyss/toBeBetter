@@ -14,7 +14,7 @@
 - 键盘事件  @keyup.enter; enter是vue给常用键盘起的别名。类似 esc tab  space right  left
 - 计算属性 computed
   ```
-  new Vue{
+  new Vue({
   data:{
   firstName:"fm",
   lastName:"lm"
@@ -26,6 +26,15 @@
   },
   set(value):{
   
+  }
+  }
+  }
+  }
+  )
+  ///以下是计算属性的简写方式
+  computed:{
+  fullName(){
+  return this.firstName+"-"+this.lastName
   }
   }
   ```
