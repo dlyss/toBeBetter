@@ -31,7 +31,10 @@
   }
   }
   )
-  ///以下是计算属性的简写方式
+
+  ```
+  ```
+    ///以下是计算属性的简写方式
   computed:{
   fullName(){
   return this.firstName+"-"+this.lastName
