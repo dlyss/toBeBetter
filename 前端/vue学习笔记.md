@@ -44,7 +44,7 @@
   ```
   Abbreviations
   watch:{
-  propertyName:{
+  propertyName:{//正常的写法是 propertyName需要用单引号包起来，简写时可以省略单引号
   handler(newValue,oldValue){
    //对应属性修改后的动作
   }
