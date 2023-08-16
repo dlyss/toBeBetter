@@ -51,3 +51,15 @@
   }
   }
   ```
+  - 绑定class样式： ：class="xxx",以上写法表示该样式为绑定一个动态样式
+  - 绑定style样式： ：style = "xxx"
+  - 条件渲染 v-show = "false"  或者表达式写法 v-show = "n===1"  当值为true时，显示内容
+  - 条件渲染 v-if="n===1" v-else-if = "n===2" 当值为true时，显示内容
+    ```
+    persons:[
+    {id:'001',name:'jack',age:18},
+    {id:'002',name:'tom',age:19},
+    ]
+    ```
+  - 列表渲染 v-for = "person in persons" :key="person.id";
+  - 列表渲染 v-for = "(p,index) of persons" :key="p.id";
