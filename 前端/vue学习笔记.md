@@ -63,3 +63,6 @@
     ```
   - 列表渲染 v-for = "person in persons" :key="person.id";
   - 列表渲染 v-for = "(p,index) of persons" :key="p.id";
+  - [箭头函数](https://mp.weixin.qq.com/s?__biz=MjM5MDA2MTI1MA==&mid=2649134235&idx=3&sn=4c624ee92950ec7233293278524b046d&chksm=be58b336892f3a20caa0d7e01d795d47021c243cfd0bba2e7d3780af03a589ebdc05eeadd3a7&scene=27)
+  - 转化为json格式： JSON.stringify(dataDemo)
+  - v-model的修饰符：number（只能是数字） lazy（失去焦点再收集数据）  trim（去除空格）
