@@ -68,12 +68,16 @@
   - v-model的修饰符：number（只能是数字） lazy（失去焦点再收集数据）  trim（去除空格）
   - [www.boocdn.com](https://www.bootcdn.cn/) js工具库
   - 过滤器
-    ···
+    ```
     <h3>现在是{{time | timeFormater}}</h3>
     filters:{
      timeFormater(value){
      return xxx
     }
     }
-    ···
+    ```
 - v-text 向其所在节点渲染文本内容 <h3 v-text="textContent"></h3>
+- v-html
+- v-cloak
+- v-once 所在节点在初次动态渲染后，就视为静态内容
+- v-pre
