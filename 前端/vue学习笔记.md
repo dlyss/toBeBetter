@@ -4,8 +4,8 @@
 - vue-devtools chrome 插件
 
 # 模板语法
-- 单项绑定 v-bind，简写为 ：（冒号）
-- 双向绑定 v-model，因为是针对value属性，所以可以简写为 v-model
+- 单项绑定 v-bind:src="xxx"，简写为 ：（冒号）
+- 双向绑定 v-model:src="xxx"，因为是针对value属性，所以可以简写为 v-model
 - MVVM（model view viewmodel）
 - object.defineProperty（obj,propertyName,{value:xxx,enumerable:true}） 对象新加属性
 - 数据代理
@@ -66,3 +66,14 @@
   - [箭头函数](https://mp.weixin.qq.com/s?__biz=MjM5MDA2MTI1MA==&mid=2649134235&idx=3&sn=4c624ee92950ec7233293278524b046d&chksm=be58b336892f3a20caa0d7e01d795d47021c243cfd0bba2e7d3780af03a589ebdc05eeadd3a7&scene=27)
   - 转化为json格式： JSON.stringify(dataDemo)
   - v-model的修饰符：number（只能是数字） lazy（失去焦点再收集数据）  trim（去除空格）
+  - [www.boocdn.com](https://www.bootcdn.cn/) js工具库
+  - 过滤器
+    ···
+    <h3>现在是{{time | timeFormater}}</h3>
+    filters:{
+     timeFormater(value){
+     return xxx
+    }
+    }
+    ···
+- v-text 向其所在节点渲染文本内容 <h3 v-text="textContent"></h3>
