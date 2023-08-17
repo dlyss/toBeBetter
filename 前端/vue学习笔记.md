@@ -81,3 +81,23 @@
 - v-cloak
 - v-once 所在节点在初次动态渲染后，就视为静态内容
 - v-pre
+- 自定义指令-函数式:v-big实现
+  ```
+  directives:{
+  big(element,binding){
+   element.innerText = binding.value*10
+  }
+  }
+  ```
+  - 自定义指令-对象式：v-fbind实现
+    ```
+    <h3 v-fbind="xx"> </h3>
+    fbind:{
+    bind(element,binding){},//页面渲染时执行
+    inserted(element,binding){
+    element.focus()
+    },//指令所在元素被插入时
+    update(element,binding){}//指令所在模板被重新解析时
+    
+    }
+    ```
