@@ -89,7 +89,7 @@
   }
   }
   ```
-  - 自定义指令-对象式：v-fbind实现
+- 自定义指令-对象式：v-fbind实现
     ```
     <h3 v-fbind="xx"> </h3>
     fbind:{
@@ -101,3 +101,43 @@
     
     }
     ```
+- 生命周期：当vue加载完元素后，会调用mounted函数
+  ```
+  new Vue({
+  // xxx其他内容
+   mounted(){
+  setInterval(()=>{
+  //xxx逻辑
+  },1000)
+  }
+  })
+  ```
+  - 组件
+    - 非单文件组件：一个文件中包含n 个组件
+      ```
+      //创建组件
+      const school = Vue.extend({
+      template:
+      '
+      <div>
+      <h2>{{name}}</h2>
+      <h2>{{address}}</h2>
+      </div>
+      ',
+       data(){
+      return {
+        name:"tom",
+        address:"beijing"
+      }
+      }
+      })
+      //注册组件
+      new Vue({
+      el:"#root",
+      components:{//局部注册
+      xuexiao：school//html页面使用该组件时，直接写： <xuexiao></xuexiao>即可应用该组件
+      }
+      })
+      //全局注册组件
+      Vue.component('scholl',scholl)
+      ```
