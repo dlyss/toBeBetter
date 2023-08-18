@@ -141,3 +141,70 @@
       //全局注册组件
       Vue.component('scholl',scholl)
       ```
+      - 组件定义简写
+        ```
+        //省略了Vue.extend()
+        const school = {
+      template:
+      '
+      <div>
+      <h2>{{name}}</h2>
+      <h2>{{address}}</h2>
+      </div>
+      ',
+       data(){
+      return {
+        name:"tom",
+        address:"beijing"
+      }
+      }
+      }
+        ```
+- 组件的嵌套
+  ```//创建子组件
+   const student = Vue.extend({
+      template:
+      '
+      <div>
+      <h2>{{name}}</h2>
+      <h2>{{age}}</h2>
+      </div>
+      ',
+       data(){
+      return {
+        name:"tom",
+        age:18
+      }
+      }
+      })
+        //创建组件
+      const school = Vue.extend({
+      template:
+      '
+      <div>
+      <h2>{{name}}</h2>
+      <h2>{{address}}</h2>
+      <student></student>//注意，这里引用了子组件
+      </div>
+      ',
+       data(){
+      return {
+        name:"tom",
+        address:"beijing"
+      }
+      },
+  components:{//组件中注册子组件
+    student:student
+  }
+      })
+      //注册组件
+      new Vue({
+      el:"#root",
+      components:{//局部注册
+      xuexiao：school//html页面使用该组件时，直接写： <xuexiao></xuexiao>即可应用该组件
+      }
+      })
+      //全局注册组件
+      Vue.component('scholl',scholl)
+  ```
+    - 单文件组件
