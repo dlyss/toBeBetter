@@ -144,12 +144,12 @@
       - 组件定义简写
         ```
         //省略了Vue.extend()
-        const school = {
-      template:
-      '
-      <div>
-      <h2>{{name}}</h2>
-      <h2>{{address}}</h2>
+        const school = { 
+        template:
+       '
+       <div>
+       <h2>{{name}}</h2>
+       <h2>{{address}}</h2>
       </div>
       ',
        data(){
@@ -159,9 +159,10 @@
       }
       }
       }
-        ```
+    ```
 - 组件的嵌套
-  ```//创建子组件
+  ```
+  //创建子组件
    const student = Vue.extend({
       template:
       '
