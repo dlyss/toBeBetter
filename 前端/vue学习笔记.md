@@ -209,3 +209,4 @@
       Vue.component('scholl',scholl)
   ```
     - 单文件组件
+- Vue脚手架：官方提供的标准化开发工具
