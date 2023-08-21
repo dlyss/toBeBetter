@@ -209,4 +209,48 @@
       Vue.component('scholl',scholl)
   ```
     - 单文件组件
-- Vue脚手架：官方提供的标准化开发工具
+- Vue脚手架：官方提供的标准化开发工具；框架有隐藏的默认配置可新建vue.config.js，放在根目录下修改。一般不允许修改，类似入库main.js  index.html
+- ref标签，类似 id属性，可以通过vue对象得到ref标签对应的元素信息
+```
+//打标识
+<h1 ref="xx">xxx<h1>
+//组件中使用
+<school ref="xx"></school>
+//获取
+this.$refs.xxx
+```
+- props 配置，应用场景式当复用同一组件，但组件展示的数据不一样，可以不统一配置属性值，在使用组件的地方写属性值，并在vue配置中声明哪些属性需要个性化定义
+  ```
+  //组件,name age为数据对象中的属性key
+  <school name="xxx" age="xxx"></school>
+
+  //vue中声明
+  new Vue({
+
+  props:['name','age','xxx']
+  })
+  //另一种定义类型的写法
+  props:{
+name:String,
+age:Number
+  }
+  
+  ```
+- mixin:可以将多个组件公用的配置提取成一个混合对象；
+```
+//先定义
+{
+ data(){xxx}
+ methods:{xxx}
+}
+//使用
+//全局混入
+Vue.mixin(xxx)
+//局部混入
+mixins:['xxx']
+```
+- 插件
+```
+//应用插件xxx
+Vue.use(xxx)
+```
