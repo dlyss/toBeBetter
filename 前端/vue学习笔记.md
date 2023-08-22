@@ -219,7 +219,7 @@
 //获取
 this.$refs.xxx
 ```
-- props 配置，应用场景式当复用同一组件，但组件展示的数据不一样，可以不统一配置属性值，在使用组件的地方写属性值，并在vue配置中声明哪些属性需要个性化定义
+- props 配置，用于父组件向子组件传递数据，并通过子组件的props属性接收数据 
   ```
   //组件,name age为数据对象中的属性key
   <school name="xxx" age="xxx"></school>
@@ -253,4 +253,10 @@ mixins:['xxx']
 ```
 //应用插件xxx
 Vue.use(xxx)
+```
+- 组件样式标签加 scoped，意思是该样式只适用当前组件范围，放在样式名冲突
+```
+<style scoped>
+  xxx
+</style>
 ```
