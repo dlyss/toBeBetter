@@ -260,3 +260,22 @@ Vue.use(xxx)
   xxx
 </style>
 ```
+- 浏览器本地存储
+```
+localStorage.setItem('xxx','xxx')
+localStorage.getItem('xxx')
+```
+- 组件自定义事件
+```
+//绑定事件:bindEvent
+<zujian @bindEvent = "sendData"/>
+//在组件中
+<button @click = "zujianSenddata">button</button>
+methods:{
+zujianSenddata(){
+this.$emit('bindEvent',xxxparas)
+//解绑 this.$off('bindEvent')
+
+}
+}
+```
