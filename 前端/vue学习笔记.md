@@ -265,7 +265,7 @@ Vue.use(xxx)
 localStorage.setItem('xxx','xxx')
 localStorage.getItem('xxx')
 ```
-- 组件自定义事件
+- 组件自定义事件，适用于子组件给父组件传递信息；在组件上写 @click.native表示click是原生的事件，不是自定义事件，否则vue会认为是自定义事件，从而无法响应
 ```
 //绑定事件:bindEvent
 <zujian @bindEvent = "sendData"/>
@@ -277,5 +277,11 @@ this.$emit('bindEvent',xxxparas)
 //解绑 this.$off('bindEvent')
 
 }
+}
+```
+- 全局事件总线：任意组件间进行通信
+```
+beforeCreate(){
+Vue.prototype.$bus = this  //安装全局事件总线
 }
 ```
