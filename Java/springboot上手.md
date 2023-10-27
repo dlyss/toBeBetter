@@ -1,7 +1,32 @@
+#config
+- 打印详细的spirng bean日志
+```
+#log level
+logging:
+  level:
+    org:
+      springframework:
+        beans: INFO
+```
 # 测试(??)
 - pom添加springboot-starter-test
-- 测试类添加@SpringBootTest注解，注意：扫描Bean时要将该测试类排除，部分工程使用：com.xx.xx.*方式扫码，会将该测试类包含，导致启动失败
-- 排除方式：@ComponentScan(excludeFilters = @ComponentScan.Filter(type= FilterType.REGEX,pattern = "com.minzheng.blog.test*"))
+- 使用ideal建和main包同级的测试包，包结构和main中的一样？？！！；测试类添加@SpringBootTest注解
+```
+@SpringBootTest
+@AutoConfigureMockMvc
+public class MvcMockTest {
+    @Autowired
+    private MockMvc mockMvc;
+    @Test
+    public void ListArticles() throws Exception {
+      ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.get("/articles").param("id", "notUsed_justforexample").header("Authorization",
+                "forTest"));
+        resultActions.andReturn().getResponse().setCharacterEncoding("UTF-8");
+       // resultActions.andExpect(MockMvcResultMatchers.status().isOk()).andDo(print());
+        System.out.println(resultActions.andReturn().getResponse().getContentAsString());
+    }
+}
+```
 # http请求（restTemplate）
 ```
 //微博示例(post 请求、带请求体httpEntity:请求头header 和/或 请求体body)
@@ -27,3 +52,4 @@
         // 获取微博用户信息
         WeiboUserInfoDTO weiboUserInfoDTO = restTemplate.getForObject(weiboConfigProperties.getUserInfoUrl(), WeiboUserInfoDTO.class, data);
 ```
+#mybatis+
