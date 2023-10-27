@@ -1,4 +1,4 @@
-# 测试
+# 测试(??)
 - pom添加springboot-starter-test
 - 测试类添加@SpringBootTest注解，注意：扫描Bean时要将该测试类排除，部分工程使用：com.xx.xx.*方式扫码，会将该测试类包含，导致启动失败
 - 排除方式：@ComponentScan(excludeFilters = @ComponentScan.Filter(type= FilterType.REGEX,pattern = "com.minzheng.blog.test*"))
